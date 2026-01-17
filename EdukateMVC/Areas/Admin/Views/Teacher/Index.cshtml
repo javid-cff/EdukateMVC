@@ -1,0 +1,30 @@
+﻿@model List<TeacherVM>
+
+<div class="container">
+	<div class="row">
+        <h1>Teachers</h1>
+        <a asp-controller="Teacher" asp-action="Create" class="btn btn-success" >Add new Teacher</a>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Teacher Fullname</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach(var teacher in Model)
+                {
+                    <tr>
+                        <th scope="row">@teacher.Id</th>
+                        <td>@teacher.FullName</td>
+                        <td>
+                            <a asp-controller="Teacher" asp-action="Update" asp-route-id="@teacher.Id" class="btn btn-warning">🖊️</a>
+                            <a asp-controller="Teacher" asp-action="Delete" asp-route-id="@teacher.Id" class="btn btn-danger">🗑️</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+	</div>
+</div>

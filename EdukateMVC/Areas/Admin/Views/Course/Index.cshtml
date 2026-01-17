@@ -1,0 +1,38 @@
+﻿@model List<CourseGetVM>
+
+<div class="container">
+    <div class="row">
+        <h1>Courses</h1>
+        <a asp-controller="Course" asp-action="Create" class="btn btn-success">Create new Course</a>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Ratings</th>
+                    <th scope="col">Reviews</th>
+                    <th scope="col">Teacher Name</th>
+                    <th scope="col">Image</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var course in Model)
+                {
+                    <tr>
+                        <th scope="row">@course.Id</th>
+                        <td>@course.Title</td>
+                        <td>@course.Rating</td>
+                        <td>@course.Review</td>
+                        <td>@course.TeacherName</td>
+                        <td><img src="~/img/@course.ImagePath" alt="@course.Title" class="img-thumbnail" /></td>
+                        <td>
+                            <a asp-controller="Course" asp-action="Update" asp-route-id="@course.Id" class="btn btn-warning">🖊️</a>
+                            <a asp-controller="Course" asp-action="Delete" asp-route-id="@course.Id" class="btn btn-danger">🗑️</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
