@@ -1,9 +1,11 @@
 ﻿using EdukateMVC.Models;
+using EdukateMVC.Models.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace EdukateMVC.Contexts
 {
-    public class EdukateDbContext : DbContext
+    public class EdukateDbContext : IdentityDbContext<AppUser>
     {
         public EdukateDbContext(DbContextOptions<EdukateDbContext> options) : base(options)
         {

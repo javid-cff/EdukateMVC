@@ -1,4 +1,6 @@
 using EdukateMVC.Contexts;
+using EdukateMVC.Models.Identity;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 namespace EdukateMVC
@@ -11,6 +13,18 @@ namespace EdukateMVC
 
             builder.Services.AddDbContext<EdukateDbContext>(options =>
                 options.UseSqlServer(builder.Configuration.GetConnectionString("Default")));
+
+            builder.Services.AddIdentity<AppUser, IdentityRole>(options =>
+            {
+                options.Lockout.MaxFailedAccessAttempts = 3;
+                options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(30);
+
+                options.Password.RequireNonAlphanumeric = true;
+                options.Password.RequireDigit = true;
+                options.Password.RequireLowercase = true;
+                options.Password.RequireUppercase = true;
+                options.Password.RequiredLength = 8;
+            }).AddEntityFrameworkStores<EdukateDbContext>().AddDefaultTokenProviders();
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();

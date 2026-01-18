@@ -1,11 +1,13 @@
 ﻿using System.Threading.Tasks;
 using EdukateMVC.Contexts;
 using EdukateMVC.ViewModels.CourseViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace EdukateMVC.Controllers
 {
+    [Authorize]
     public class CourseController(EdukateDbContext _context) : Controller
     {
         public async Task<IActionResult> Index()
