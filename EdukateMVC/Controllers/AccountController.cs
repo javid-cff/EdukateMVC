@@ -72,7 +72,7 @@ namespace EdukateMVC.Controllers
                 return View(vm);
             }
 
-            var result = await _signInManager.PasswordSignInAsync(user, vm.Password, vm.IsRemeber, lockoutOnFailure: true);
+            var result = await _signInManager.PasswordSignInAsync(user, vm.Password, vm.IsRemember, lockoutOnFailure: true);
 
             if (!result.Succeeded)
             {

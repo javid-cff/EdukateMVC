@@ -28,7 +28,7 @@
         public static void FileDelete(string path)
         {
             if (File.Exists(path))
-                FileDelete(path);
+                File.Delete(path);
         }
     }
 }

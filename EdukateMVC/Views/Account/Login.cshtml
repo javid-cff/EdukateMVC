@@ -8,7 +8,7 @@
             <br />
             <div class="form-group">
                 <label for="exampleInputEmail1">Email address</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                <input asp-for="Email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
                 <span asp-validation-for="Email" class="text-danger"></span>
             </div>
             <br />
@@ -19,7 +19,7 @@
             </div>
 
             <div class="form-check">
-                <input asp-for="IsRemeber" type="checkbox" class="form-check-input" id="exampleCheck1">
+                <input asp-for="IsRemember" type="checkbox" class="form-check-input" id="exampleCheck1">
                 <label class="form-check-label" for="exampleCheck1">Remember Me</label>
             </div>
             <br />
